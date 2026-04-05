@@ -9,6 +9,8 @@ function Dashboard() {
     const charts = [];
 
     const initDashboard = async () => {
+      window.feather?.replace();
+
       const rangeInput = document.getElementById("litepickerRangePlugin");
       if (rangeInput && window.Litepicker && !rangeInput._litepicker) {
         rangeInput._litepicker = new window.Litepicker({

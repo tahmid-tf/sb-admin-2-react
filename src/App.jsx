@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
 import "./css/styles.css";
 import profile1 from "./assets/img/illustrations/profiles/profile-1.png";
 import profile2 from "./assets/img/illustrations/profiles/profile-2.png";
@@ -48,6 +48,8 @@ const ensureStyle = (href, id) => {
 };
 
 function DashboardLayout() {
+  const [scriptsReady, setScriptsReady] = useState(false);
+
   useEffect(() => {
     let sidebarClickHandler;
     let contentClickHandler;
@@ -88,11 +90,14 @@ function DashboardLayout() {
         };
         sidenavContent.addEventListener("click", contentClickHandler);
       }
+
+      setScriptsReady(true);
     };
 
     init().catch(console.error);
 
     return () => {
+      setScriptsReady(false);
       document.title = previousTitle;
       document.body.classList.remove("nav-fixed", "sidenav-toggled");
       document.getElementById("sidebarToggle")?.removeEventListener("click", sidebarClickHandler);
@@ -106,7 +111,7 @@ function DashboardLayout() {
         <button className="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle">
           <i data-feather="menu" />
         </button>
-        <a className="navbar-brand pe-3 ps-4 ps-lg-2" href="/dashboard">Dashboard</a>
+        <Link className="navbar-brand pe-3 ps-4 ps-lg-2" to="/dashboard">Dashboard</Link>
         <form className="form-inline me-auto d-none d-lg-block me-3">
           <div className="input-group input-group-joined input-group-solid">
             <input className="form-control pe-0" type="search" placeholder="Search" aria-label="Search" />
@@ -201,7 +206,7 @@ function DashboardLayout() {
                 </a>
                 <div className="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav">
-                    <a className="nav-link" href="/dashboard">Dashboard</a>
+                    <Link className="nav-link" to="/dashboard">Dashboard</Link>
                   </nav>
                 </div>
 
@@ -229,10 +234,12 @@ function DashboardLayout() {
         </div>
 
         <div id="layoutSidenav_content">
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
-          </Routes>
+          {scriptsReady ? (
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            </Routes>
+          ) : null}
         </div>
       </div>
     </>
