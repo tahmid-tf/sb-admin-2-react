@@ -13,6 +13,7 @@ function Sidebar() {
           </a>
           <div className="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
             <nav className="sidenav-menu-nested nav">
+              <Link className="nav-link" to="/default-dashboard">Default</Link>
               <Link className="nav-link" to="/dashboard">Affiliate</Link>
             </nav>
           </div>

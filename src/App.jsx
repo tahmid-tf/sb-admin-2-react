@@ -8,6 +8,7 @@ import profile4 from "./assets/img/illustrations/profiles/profile-4.png";
 import profile5 from "./assets/img/illustrations/profiles/profile-5.png";
 import Sidebar from "./component/sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import DefaultDashboard from "./pages/DefaultDashboard.jsx";
 
 const alerts = [
   ["bg-warning", "activity", "December 29, 2021", "This is an alert message. It's nothing serious, but it requires your attention."],
@@ -59,12 +60,14 @@ function DashboardLayout() {
     const init = async () => {
       document.title = "Affiliate Dashboard";
       document.body.classList.add("nav-fixed");
+      ensureStyle("https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css", "simple-datatables-style");
       ensureStyle("https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css", "litepicker-style");
 
       await loadScript("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js", "sb-fontawesome");
       await loadScript("https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js", "sb-feather");
       await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js", "sb-bootstrap");
       await loadScript("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js", "sb-chartjs");
+      await loadScript("https://cdn.jsdelivr.net/npm/simple-datatables@latest", "sb-datatables");
       await loadScript("https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js", "sb-litepicker");
 
       window.feather?.replace();
@@ -203,6 +206,7 @@ function DashboardLayout() {
           {scriptsReady ? (
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/default-dashboard" element={<DefaultDashboard />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           ) : null}
