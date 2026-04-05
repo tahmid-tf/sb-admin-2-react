@@ -27,9 +27,11 @@ src/
   assets/        Images, fonts, and template assets
   component/     Reusable layout and UI components
   css/           Template styles
+  hooks/         Shared React hooks
   js/            Template helper scripts
-  pages/         Route-based page components
-  App.jsx        Main app layout and routes
+  pages/         Route-based page components grouped by feature
+  routes/        Explicit React Router route definitions
+  App.jsx        Main app shell
   main.jsx       App entry point
 ```
 
@@ -108,6 +110,8 @@ npm run preview
 ## Development Notes
 
 - Shared navigation and layout live in `src/component`
+- Vendor bootstrapping lives in `src/hooks/useTemplateVendors.js`
+- Routes are intentionally kept explicit in `src/routes/AppRoutes.jsx` for readability
 - Template pages should be added as JSX components in `src/pages`
 - Internal navigation should use React Router components like `Link` and `NavLink`
 - Interactive template features such as charts, icons, date pickers, and datatables are initialized from React page components
