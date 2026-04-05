@@ -7,8 +7,7 @@ import profile3 from "./assets/img/illustrations/profiles/profile-3.png";
 import profile4 from "./assets/img/illustrations/profiles/profile-4.png";
 import profile5 from "./assets/img/illustrations/profiles/profile-5.png";
 import Sidebar from "./component/sidebar.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import DefaultDashboard from "./pages/DefaultDashboard.jsx";
+import TemplatePage from "./pages/TemplatePage.jsx";
 
 const alerts = [
   ["bg-warning", "activity", "December 29, 2021", "This is an alert message. It's nothing serious, but it requires your attention."],
@@ -58,7 +57,7 @@ function DashboardLayout() {
     const previousTitle = document.title;
 
     const init = async () => {
-      document.title = "Affiliate Dashboard";
+      document.title = "SB Admin Pro";
       document.body.classList.add("nav-fixed");
       ensureStyle("https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css", "simple-datatables-style");
       ensureStyle("https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css", "litepicker-style");
@@ -205,8 +204,9 @@ function DashboardLayout() {
         <div id="layoutSidenav_content">
           {scriptsReady ? (
             <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/default-dashboard" element={<DefaultDashboard />} />
+              <Route path="/dashboard" element={<TemplatePage slug="dashboard-3" />} />
+              <Route path="/default-dashboard" element={<TemplatePage slug="dashboard-1" />} />
+              <Route path="/pages/:slug" element={<TemplatePage />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           ) : null}
