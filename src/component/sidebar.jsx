@@ -1,174 +1,162 @@
 import { NavLink } from "react-router-dom";
 
-const sections = [
-  {
-    id: "collapseDashboards",
-    icon: "activity",
-    title: "Dashboards",
-    links: [
-      ["Default", "/default-dashboard"],
-      ["Affiliate", "/dashboard"],
-      ["Multipurpose", "/pages/dashboard-2"],
-    ],
-  },
-  {
-    id: "collapseAccount",
-    icon: "user",
-    title: "Account",
-    links: [
-      ["Profile", "/pages/account-profile"],
-      ["Billing", "/pages/account-billing"],
-      ["Security", "/pages/account-security"],
-      ["Notifications", "/pages/account-notifications"],
-    ],
-  },
-  {
-    id: "collapseAuth",
-    icon: "lock",
-    title: "Authentication",
-    links: [
-      ["Login Basic", "/pages/auth-login-basic"],
-      ["Register Basic", "/pages/auth-register-basic"],
-      ["Password Basic", "/pages/auth-password-basic"],
-      ["Login Social", "/pages/auth-login-social"],
-      ["Register Social", "/pages/auth-register-social"],
-      ["Password Social", "/pages/auth-password-social"],
-      ["Redirect", "/pages/auth-redirect"],
-    ],
-  },
-  {
-    id: "collapseErrors",
-    icon: "alert-circle",
-    title: "Errors",
-    links: [
-      ["400", "/pages/error-400"],
-      ["401", "/pages/error-401"],
-      ["403", "/pages/error-403"],
-      ["404 v1", "/pages/error-404-1"],
-      ["404 v2", "/pages/error-404-2"],
-      ["500", "/pages/error-500"],
-      ["503", "/pages/error-503"],
-      ["504", "/pages/error-504"],
-    ],
-  },
-  {
-    id: "collapseApps",
-    icon: "globe",
-    title: "Applications",
-    links: [
-      ["KB Home 1", "/pages/knowledge-base-home-1"],
-      ["KB Home 2", "/pages/knowledge-base-home-2"],
-      ["KB Category", "/pages/knowledge-base-category"],
-      ["KB Article", "/pages/knowledge-base-article"],
-      ["Users List", "/pages/user-management-list"],
-      ["Edit User", "/pages/user-management-edit-user"],
-      ["Add User", "/pages/user-management-add-user"],
-      ["Groups List", "/pages/user-management-groups-list"],
-      ["Org Details", "/pages/user-management-org-details"],
-      ["Posts List", "/pages/blog-management-posts-list"],
-      ["Create Post", "/pages/blog-management-create-post"],
-      ["Edit Post", "/pages/blog-management-edit-post"],
-      ["Posts Admin", "/pages/blog-management-posts-admin"],
-    ],
-  },
-  {
-    id: "collapseFlows",
-    icon: "repeat",
-    title: "Flows",
-    links: [
-      ["Tenant Select", "/pages/multi-tenant-select"],
-      ["Tenant Join", "/pages/multi-tenant-join"],
-      ["Tenant Create", "/pages/multi-tenant-create"],
-      ["Tenant Users", "/pages/multi-tenant-add-users"],
-      ["Wizard", "/pages/wizard"],
-    ],
-  },
-  {
-    id: "collapseLayout",
-    icon: "layout",
-    title: "Layout",
-    links: [
-      ["Static", "/pages/layout-static"],
-      ["Dark", "/pages/layout-dark"],
-      ["RTL", "/pages/layout-rtl"],
-      ["Boxed", "/pages/layout-boxed"],
-      ["Fluid", "/pages/layout-fluid"],
-      ["Header Simplified", "/pages/header-simplified"],
-      ["Header Compact", "/pages/header-compact"],
-      ["Header Overlap", "/pages/header-overlap"],
-      ["Header Breadcrumbs", "/pages/header-breadcrumbs"],
-      ["Header Light", "/pages/header-light"],
-      ["Starter Default", "/pages/starter-default"],
-      ["Starter Minimal", "/pages/starter-minimal"],
-    ],
-  },
-  {
-    id: "collapseComponents",
-    icon: "package",
-    title: "Components",
-    links: [
-      ["Alerts", "/pages/alerts"],
-      ["Avatars", "/pages/avatars"],
-      ["Badges", "/pages/badges"],
-      ["Buttons", "/pages/buttons"],
-      ["Cards", "/pages/cards"],
-      ["Dropdowns", "/pages/dropdowns"],
-      ["Forms", "/pages/forms"],
-      ["Modals", "/pages/modals"],
-      ["Navigation", "/pages/navigation"],
-      ["Progress", "/pages/progress"],
-      ["Step", "/pages/step"],
-      ["Timeline", "/pages/timeline"],
-      ["Toasts", "/pages/toasts"],
-      ["Tooltips", "/pages/tooltips"],
-    ],
-  },
-  {
-    id: "collapseUtilities",
-    icon: "tool",
-    title: "Utilities",
-    links: [
-      ["Animations", "/pages/animations"],
-      ["Background", "/pages/background"],
-      ["Borders", "/pages/borders"],
-      ["Lift", "/pages/lift"],
-      ["Shadows", "/pages/shadows"],
-      ["Typography", "/pages/typography"],
-      ["Charts", "/pages/charts"],
-      ["Tables", "/pages/tables"],
-      ["Pricing", "/pages/pricing"],
-      ["Invoice", "/pages/invoice"],
-      ["Index", "/pages/index"],
-    ],
-  },
-];
-
 function Sidebar() {
   return (
     <nav className="sidenav shadow-right sidenav-light">
       <div className="sidenav-menu">
         <div className="nav accordion" id="accordionSidenav">
-          {sections.map((section) => (
-            <div key={section.id}>
-              <div className="sidenav-menu-heading">{section.title}</div>
-              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target={`#${section.id}`}>
-                <div className="nav-link-icon"><i data-feather={section.icon} /></div>
-                {section.title}
+          <div className="sidenav-menu-heading">Core</div>
+          <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapseDashboards">
+            <div className="nav-link-icon"><i data-feather="activity" /></div>
+            Dashboards
+            <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+          </a>
+          <div className="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+            <nav className="sidenav-menu-nested nav">
+              <NavLink className="nav-link" to="/default-dashboard">Default</NavLink>
+              <NavLink className="nav-link" to="/dashboard">Affiliate</NavLink>
+            </nav>
+          </div>
+
+          <div className="sidenav-menu-heading">Custom</div>
+          <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapsePages">
+            <div className="nav-link-icon"><i data-feather="grid" /></div>
+            Pages
+            <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+          </a>
+          <div className="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
+            <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAccount">
+                Account
                 <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
               </a>
-              <div className="collapse" id={section.id} data-bs-parent="#accordionSidenav">
+              <div className="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
                 <nav className="sidenav-menu-nested nav">
-                  {section.links.map(([label, to]) => (
-                    <NavLink className="nav-link" to={to} key={to}>
-                      {label}
-                    </NavLink>
-                  ))}
+                  <NavLink className="nav-link" to="/account-profile">Profile</NavLink>
+                  <NavLink className="nav-link" to="/account-billing">Billing</NavLink>
+                  <NavLink className="nav-link" to="/account-security">Security</NavLink>
+                  <NavLink className="nav-link" to="/account-notifications">Notifications</NavLink>
                 </nav>
               </div>
-            </div>
-          ))}
+
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth">
+                Authentication
+                <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+              </a>
+              <div className="collapse" id="pagesCollapseAuth" data-bs-parent="#accordionSidenavPagesMenu">
+                <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
+                  <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthBasic">
+                    Basic
+                    <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+                  </a>
+                  <div className="collapse" id="pagesCollapseAuthBasic" data-bs-parent="#accordionSidenavPagesAuth">
+                    <nav className="sidenav-menu-nested nav">
+                      <NavLink className="nav-link" to="/auth-login-basic">Login</NavLink>
+                      <NavLink className="nav-link" to="/auth-register-basic">Register</NavLink>
+                      <NavLink className="nav-link" to="/auth-password-basic">Forgot Password</NavLink>
+                    </nav>
+                  </div>
+
+                  <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthSocial">
+                    Social
+                    <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+                  </a>
+                  <div className="collapse" id="pagesCollapseAuthSocial" data-bs-parent="#accordionSidenavPagesAuth">
+                    <nav className="sidenav-menu-nested nav">
+                      <NavLink className="nav-link" to="/auth-login-social">Login</NavLink>
+                      <NavLink className="nav-link" to="/auth-register-social">Register</NavLink>
+                      <NavLink className="nav-link" to="/auth-password-social">Forgot Password</NavLink>
+                    </nav>
+                  </div>
+                </nav>
+              </div>
+
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError">
+                Error
+                <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+              </a>
+              <div className="collapse" id="pagesCollapseError" data-bs-parent="#accordionSidenavPagesMenu">
+                <nav className="sidenav-menu-nested nav">
+                  <NavLink className="nav-link" to="/error-400">400 Error</NavLink>
+                  <NavLink className="nav-link" to="/error-401">401 Error</NavLink>
+                  <NavLink className="nav-link" to="/error-403">403 Error</NavLink>
+                  <NavLink className="nav-link" to="/error-404-1">404 Error 1</NavLink>
+                  <NavLink className="nav-link" to="/error-404-2">404 Error 2</NavLink>
+                  <NavLink className="nav-link" to="/error-500">500 Error</NavLink>
+                  <NavLink className="nav-link" to="/error-503">503 Error</NavLink>
+                  <NavLink className="nav-link" to="/error-504">504 Error</NavLink>
+                </nav>
+              </div>
+
+              <NavLink className="nav-link" to="/pricing">Pricing</NavLink>
+              <NavLink className="nav-link" to="/invoice">Invoice</NavLink>
+            </nav>
+          </div>
+
+          <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapseApps">
+            <div className="nav-link-icon"><i data-feather="globe" /></div>
+            Applications
+            <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+          </a>
+          <div className="collapse" id="collapseApps" data-bs-parent="#accordionSidenav">
+            <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavAppsMenu">
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#appsCollapseKnowledgeBase">
+                Knowledge Base
+                <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+              </a>
+              <div className="collapse" id="appsCollapseKnowledgeBase" data-bs-parent="#accordionSidenavAppsMenu">
+                <nav className="sidenav-menu-nested nav">
+                  <NavLink className="nav-link" to="/knowledge-base-home-1">Home 1</NavLink>
+                  <NavLink className="nav-link" to="/knowledge-base-home-2">Home 2</NavLink>
+                  <NavLink className="nav-link" to="/knowledge-base-category">Category</NavLink>
+                  <NavLink className="nav-link" to="/knowledge-base-article">Article</NavLink>
+                </nav>
+              </div>
+
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#appsCollapseUserManagement">
+                User Management
+                <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+              </a>
+              <div className="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                <nav className="sidenav-menu-nested nav">
+                  <NavLink className="nav-link" to="/user-management-list">Users List</NavLink>
+                  <NavLink className="nav-link" to="/user-management-edit-user">Edit User</NavLink>
+                  <NavLink className="nav-link" to="/user-management-add-user">Add User</NavLink>
+                  <NavLink className="nav-link" to="/user-management-groups-list">Groups List</NavLink>
+                  <NavLink className="nav-link" to="/user-management-org-details">Organization Details</NavLink>
+                </nav>
+              </div>
+
+              <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#appsCollapsePostsManagement">
+                Posts Management
+                <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+              </a>
+              <div className="collapse" id="appsCollapsePostsManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                <nav className="sidenav-menu-nested nav">
+                  <NavLink className="nav-link" to="/blog-management-posts-list">Posts List</NavLink>
+                  <NavLink className="nav-link" to="/blog-management-create-post">Create Post</NavLink>
+                  <NavLink className="nav-link" to="/blog-management-edit-post">Edit Post</NavLink>
+                  <NavLink className="nav-link" to="/blog-management-posts-admin">Posts Admin</NavLink>
+                </nav>
+              </div>
+            </nav>
+          </div>
+
+          <a className="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapseFlows">
+            <div className="nav-link-icon"><i data-feather="repeat" /></div>
+            Flows
+            <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+          </a>
+          <div className="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
+            <nav className="sidenav-menu-nested nav">
+              <NavLink className="nav-link" to="/multi-tenant-select">Multi-Tenant Registration</NavLink>
+              <NavLink className="nav-link" to="/wizard">Wizard</NavLink>
+            </nav>
+          </div>
         </div>
       </div>
+
+      
 
       <div className="sidenav-footer">
         <div className="sidenav-footer-content">
