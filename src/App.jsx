@@ -11,8 +11,43 @@ import AccountBilling from "./pages/AccountBilling.jsx";
 import AccountNotifications from "./pages/AccountNotifications.jsx";
 import AccountProfile from "./pages/AccountProfile.jsx";
 import AccountSecurity from "./pages/AccountSecurity.jsx";
+import AuthLoginBasic from "./pages/AuthLoginBasic.jsx";
+import AuthLoginSocial from "./pages/AuthLoginSocial.jsx";
+import AuthPasswordBasic from "./pages/AuthPasswordBasic.jsx";
+import AuthPasswordSocial from "./pages/AuthPasswordSocial.jsx";
+import AuthRedirect from "./pages/AuthRedirect.jsx";
+import AuthRegisterBasic from "./pages/AuthRegisterBasic.jsx";
+import AuthRegisterSocial from "./pages/AuthRegisterSocial.jsx";
+import BlogManagementCreatePost from "./pages/BlogManagementCreatePost.jsx";
+import BlogManagementEditPost from "./pages/BlogManagementEditPost.jsx";
+import BlogManagementPostsAdmin from "./pages/BlogManagementPostsAdmin.jsx";
+import BlogManagementPostsList from "./pages/BlogManagementPostsList.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import DefaultDashboard from "./pages/DefaultDashboard.jsx";
+import Error400 from "./pages/Error400.jsx";
+import Error401 from "./pages/Error401.jsx";
+import Error403 from "./pages/Error403.jsx";
+import Error404One from "./pages/Error404One.jsx";
+import Error404Two from "./pages/Error404Two.jsx";
+import Error500 from "./pages/Error500.jsx";
+import Error503 from "./pages/Error503.jsx";
+import Error504 from "./pages/Error504.jsx";
+import Invoice from "./pages/Invoice.jsx";
+import KnowledgeBaseArticle from "./pages/KnowledgeBaseArticle.jsx";
+import KnowledgeBaseCategory from "./pages/KnowledgeBaseCategory.jsx";
+import KnowledgeBaseHomeOne from "./pages/KnowledgeBaseHomeOne.jsx";
+import KnowledgeBaseHomeTwo from "./pages/KnowledgeBaseHomeTwo.jsx";
+import MultiTenantAddUsers from "./pages/MultiTenantAddUsers.jsx";
+import MultiTenantCreate from "./pages/MultiTenantCreate.jsx";
+import MultiTenantJoin from "./pages/MultiTenantJoin.jsx";
+import MultiTenantSelect from "./pages/MultiTenantSelect.jsx";
+import Pricing from "./pages/Pricing.jsx";
+import UserManagementAddUser from "./pages/UserManagementAddUser.jsx";
+import UserManagementEditUser from "./pages/UserManagementEditUser.jsx";
+import UserManagementGroupsList from "./pages/UserManagementGroupsList.jsx";
+import UserManagementList from "./pages/UserManagementList.jsx";
+import UserManagementOrgDetails from "./pages/UserManagementOrgDetails.jsx";
+import Wizard from "./pages/Wizard.jsx";
 
 const alerts = [
   ["bg-warning", "activity", "December 29, 2021", "This is an alert message. It's nothing serious, but it requires your attention."],
@@ -215,6 +250,41 @@ function DashboardLayout() {
               <Route path="/account-billing" element={<AccountBilling />} />
               <Route path="/account-security" element={<AccountSecurity />} />
               <Route path="/account-notifications" element={<AccountNotifications />} />
+              <Route path="/auth-login-basic" element={<AuthLoginBasic />} />
+              <Route path="/auth-register-basic" element={<AuthRegisterBasic />} />
+              <Route path="/auth-password-basic" element={<AuthPasswordBasic />} />
+              <Route path="/auth-login-social" element={<AuthLoginSocial />} />
+              <Route path="/auth-register-social" element={<AuthRegisterSocial />} />
+              <Route path="/auth-password-social" element={<AuthPasswordSocial />} />
+              <Route path="/auth-redirect" element={<AuthRedirect />} />
+              <Route path="/error-400" element={<Error400 />} />
+              <Route path="/error-401" element={<Error401 />} />
+              <Route path="/error-403" element={<Error403 />} />
+              <Route path="/error-404-1" element={<Error404One />} />
+              <Route path="/error-404-2" element={<Error404Two />} />
+              <Route path="/error-500" element={<Error500 />} />
+              <Route path="/error-503" element={<Error503 />} />
+              <Route path="/error-504" element={<Error504 />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/invoice" element={<Invoice />} />
+              <Route path="/knowledge-base-home-1" element={<KnowledgeBaseHomeOne />} />
+              <Route path="/knowledge-base-home-2" element={<KnowledgeBaseHomeTwo />} />
+              <Route path="/knowledge-base-category" element={<KnowledgeBaseCategory />} />
+              <Route path="/knowledge-base-article" element={<KnowledgeBaseArticle />} />
+              <Route path="/user-management-list" element={<UserManagementList />} />
+              <Route path="/user-management-edit-user" element={<UserManagementEditUser />} />
+              <Route path="/user-management-add-user" element={<UserManagementAddUser />} />
+              <Route path="/user-management-groups-list" element={<UserManagementGroupsList />} />
+              <Route path="/user-management-org-details" element={<UserManagementOrgDetails />} />
+              <Route path="/blog-management-posts-list" element={<BlogManagementPostsList />} />
+              <Route path="/blog-management-create-post" element={<BlogManagementCreatePost />} />
+              <Route path="/blog-management-edit-post" element={<BlogManagementEditPost />} />
+              <Route path="/blog-management-posts-admin" element={<BlogManagementPostsAdmin />} />
+              <Route path="/multi-tenant-select" element={<MultiTenantSelect />} />
+              <Route path="/multi-tenant-join" element={<MultiTenantJoin />} />
+              <Route path="/multi-tenant-create" element={<MultiTenantCreate />} />
+              <Route path="/multi-tenant-add-users" element={<MultiTenantAddUsers />} />
+              <Route path="/wizard" element={<Wizard />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           ) : null}

@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import AccountNav from "../component/AccountNav.jsx";
+import { useSimpleDatatable } from "../component/PageHelpers.jsx";
 
 function AccountBilling() {
+  useSimpleDatatable("billingHistoryTable");
+
   useEffect(() => {
     window.feather?.replace();
-  }, []);
+  });
 
   return (
     <main>
@@ -90,7 +93,7 @@ function AccountBilling() {
           <div className="card-header">Billing History</div>
           <div className="card-body p-0">
             <div className="table-responsive table-billing-history">
-              <table className="table mb-0">
+              <table className="table mb-0" id="billingHistoryTable">
                 <thead>
                   <tr>
                     <th className="border-gray-200" scope="col">Transaction ID</th>
