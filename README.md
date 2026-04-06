@@ -1,5 +1,7 @@
 # SB Admin 2 React
 
+<img src="public/p1.png" alt="SB Admin 2 React Logo" />
+
 A React + Vite project that adapts the SB Admin Pro template into a cleaner JSX-based structure.
 
 This project focuses on:
